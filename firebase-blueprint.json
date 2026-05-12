@@ -1,0 +1,32 @@
+{
+  "entities": {
+    "Lead": {
+      "title": "Lead",
+      "description": "Information captured from users interested in the product.",
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "User's email address."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the user expressed interest."
+        },
+        "consent": {
+          "type": "boolean",
+          "description": "Whether the user consented to be notified."
+        }
+      },
+      "required": ["email", "createdAt", "consent"]
+    }
+  },
+  "firestore": {
+    "/leads/{leadId}": {
+      "schema": "Lead",
+      "description": "Captures user interest for the smoke test."
+    }
+  }
+}
